@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>whisper-asr-webservice</Name>
+  <Repository>onerahmet/openai-whisper-asr-webservice</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/ahmetoner/whisper-asr-webservice</Project>
+  <Overview>Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multi-task model that can perform multilingual speech recognition as well as speech translation and language identification. For more details: github.com/openai/whisper&#xD;
+&#xD;
+Use ASR_MODEL to specify which model to run. Available models are tiny, base, small, medium, large, large-v1 and large-v2. Please note that large and large-v2 are the same model. For English-only applications, the .en models tend to perform better, especially for the tiny.en and base.en models. We observed that the difference becomes less significant for the small.en and medium.en models.&#xD;
+&#xD;
+The ASR model is downloaded each time you start the container, using the large model this can take some time. If you want to decrease the time it takes to start your container by skipping the download, you can provide a persistent storage path. Next time you start your container the ASR Model will be loaded from there instead of being downloaded again.&#xD;
+&#xD;
+For GPU support, add '--gpus all' to 'Extra Parameters'.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:9000]</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/taha-yassine/unraid-templates/main/whisper-asr-webservice/logo.png</Icon>
+  <ExtraParams>--gpus all</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1682364154</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="WebUI" Target="9000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9000</Config>
+  <Config Name="ASR_MODEL" Target="ASR_MODEL" Default="base" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">base</Config>
+  <Config Name="Model storage path" Target="/root/.cache/whisper" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false"/>
+</Container>
